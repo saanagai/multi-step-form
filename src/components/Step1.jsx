@@ -2,6 +2,7 @@
 import { Header } from "./Header";
 import { Input } from "./Input";
 import Button from "./Button";
+import { ChevronRight } from "lucide-react";
 
 // const [formValues, setFormValues] = useState({
 //   firstName: "",
@@ -39,17 +40,31 @@ import Button from "./Button";
 //     }));
 //   }
 // };
-export const Step1 = (label, placeholder) => {
+export const Step1 = ({ label, placeholder, setCurrentStep }) => {
   return (
-    <div className="Flex justify-between items-start bg-[green] w-[490px] h-[680px] rounded-[8px] p-8">
+    <div className="Flex justify-between items-start bg-white w-[490px] h-[680px] rounded-[8px] p-8">
       <Header />
-      <div className="flex flex-col mt-6">
-        <Input label="First name" placeholder="Your first name" />
-        <Input label="First name" placeholder="Your last name" />
-        <Input label="First name" placeholder="Your user name" />
+      <div className="flex flex-col mt-6 ">
+        <Input
+          label="First name"
+          placeholder="Your first name"
+          handleChange="{printFirstName}"
+          error={""}
+          // {formErrors.firstName}
+        />
+        <Input
+          label="Last name"
+          placeholder="Your last name"
+          handleChange="{printFirstName}"
+        />
+        <Input
+          label="User name"
+          placeholder="Your user name"
+          handleChange="{printFirstName}"
+        />
       </div>
-      <div className=" flex flex-col m-auto">
-        <Button />
+      <div className=" ">
+        <Button buttonText="Continue 1/3" setCurrentStep={setCurrentStep} />
       </div>
     </div>
   );
