@@ -14,7 +14,7 @@ export function Input({ label, placeholder, handleChange, errortext }) {
       </p>
       <input
         type="text"
-        className="bg-white w-[100%] h-[44px] rounded-[8px] border border-slate-600"
+        className="bg-white w-[100%] h-[44px] rounded-[8px] border border-[#CBD5E1]"
         placeholder={placeholder}
         onChange={handleChange}
       />

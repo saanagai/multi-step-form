@@ -4,7 +4,7 @@ import { Input } from "./Input";
 import Button from "./Button";
 import { ChevronLeft } from "lucide-react";
 
-export function Step2({ setCurrentStep }) {
+export function Step2({ setCurrentStep, handleChange }) {
   return (
     <div className="bg-white w-[490px] h-[680px] rounded-[8px] p-8">
       <Header />
@@ -24,7 +24,7 @@ export function Step2({ setCurrentStep }) {
         handleChange="{printPassword}"
       />
       <Input
-        label="confirm password"
+        label="Confirm password"
         placeholder="******"
         handleChange="{printComfirmPassword}"
       />
@@ -33,7 +33,11 @@ export function Step2({ setCurrentStep }) {
           <ChevronLeft />
           Back
         </button>
-        <Button buttonText="Continue 2/3" setCurrentStep={setCurrentStep} />
+        <Button
+          buttonText="Continue 2/3"
+          setCurrentStep={setCurrentStep}
+          handleChange={handleChange}
+        />
       </div>
     </div>
   );
