@@ -17,10 +17,12 @@ export default function Home() {
     <div className="flex flex-col gap-5 mt-40 ml-40">
       <FormSteps setCurrentStep={setCurrentSteps} currentStep={currentStep} />
       <button
-        onclick={() => {
+        onClick={() => {
           setCurrentStep(currentStep + 1);
         }}
-      ></button>
+      >
+        continue
+      </button>
       {/* <Success /> */}
     </div>
   );

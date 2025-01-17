@@ -5,7 +5,7 @@ import Button from "./Button";
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 
-export const Step1 = ({ label, placeholder, setCurrentStep, errortext }) => {
+export const Step1 = ({ setCurrentStep, currentStep }) => {
   const [formValues, setFormValues] = useState({
     firstName: "",
     lastName: "",
@@ -25,6 +25,7 @@ export const Step1 = ({ label, placeholder, setCurrentStep, errortext }) => {
   };
   const handleClick = () => {
     const { firstName, lastName, userName } = formValues;
+    console.log(formValues);
     if (!firstName.trim()) {
       setFormErrors((prev) => ({
         ...prev,
@@ -36,6 +37,7 @@ export const Step1 = ({ label, placeholder, setCurrentStep, errortext }) => {
         firstName: "Текст оруулна уу!",
       }));
     }
+
     if (!lastName.trim()) {
       setFormErrors((prev) => ({
         ...prev,
@@ -58,7 +60,7 @@ export const Step1 = ({ label, placeholder, setCurrentStep, errortext }) => {
         userName: "Текст оруулна уу!",
       }));
     } else {
-      setCurrentStep(setCurrentStep + 1);
+      setCurrentStep(currentStep + 1);
     }
     // setCurrentStep();
   };
@@ -67,26 +69,36 @@ export const Step1 = ({ label, placeholder, setCurrentStep, errortext }) => {
       <Header />
       <div className="flex flex-col mt-6 ">
         <Input
-          label={"first Name"}
-          placeholder={"Your first Name"}
-          handleChange={"printFirstName"}
-          error={formErrors.firstName}
+          label="first Name"
+          placeholder="Your first Name"
+          type="text"
+          handleChange={handleChange}
+          name="First name"
+          errortext={formErrors.firstName}
         />
         <Input
-          label={"lastName"}
-          placeholder={"Your last Name"}
-          handleChange={"printFirstName"}
-          error={formErrors.lastName}
+          handleChange={handleChange}
+          label="lastName"
+          placeholder="Your last Name"
+          type="text"
+          name="Last name"
+          errortext={formErrors.lastName}
         />
         <Input
-          label={"Username"}
-          placeholder={"Your user name"}
-          handleChange={"printFirstName"}
-          error={formErrors.userName}
+          handleChange={handleChange}
+          label="Username"
+          placeholder="Your user name"
+          type="text"
+          name="User name"
+          errortext={formErrors.userName}
         />
       </div>
       <div className=" ">
-        <Button buttonText="Continue 1/3" setCurrentStep={handleClick} />
+        <Button
+          onClick={handleClick}
+          buttonText="Continue 1/3"
+          setCurrentStep={setCurrentStep}
+        />
       </div>
     </div>
   );
